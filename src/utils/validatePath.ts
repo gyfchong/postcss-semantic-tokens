@@ -17,10 +17,14 @@ export function validatePath(
 
   const pathSegments = Array.isArray(path) ? path : toPath(pathString);
 
+  console.info("validatePath: pathSegments", pathSegments);
+
   const value = dlv(config, pathSegments);
 
+  console.info("validatePath: value", value);
+
   if (value === undefined) {
-    let error = `'${pathString}' does not exist in your theme config.`;
+    let error = `'${pathString}' does not exist in your semantic tokens config.`;
     const parentSegments = pathSegments.slice(0, -1);
     const parentValue = dlv(config.theme, parentSegments);
 

@@ -16,7 +16,7 @@ interface LocalTestContext {
 }
 
 beforeEach<LocalTestContext>(async (context) => {
-  context.input = "{box-shadow: 1px 1px 1px colour(shadow);}";
+  context.input = "{ box-shadow: 1px 1px 1px colour(shadow); }";
 });
 
 it("gets correct interactive colour", async ({ options, input }) => {

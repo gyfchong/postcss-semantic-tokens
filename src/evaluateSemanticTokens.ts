@@ -31,12 +31,25 @@ export const rawColours = {
 };
 
 export const semanticsConfig = {
-  interactive: rawColours.violet[500],
-  shadow: "black",
+  colour: {
+    interactive: {
+      default: rawColours.violet[500],
+      hover: rawColours.violet[100],
+    },
+    shadow: {
+      default: "black",
+    },
+  },
+  space: {
+    16: "1rem",
+  },
 };
 
 const getValue = (node: Node, path: string, ...args: any): string => {
   let { isValid, value, error } = resolvePath(semanticsConfig, path);
+
+  if (!isValid) throw node.error(error);
+
   return value;
 };
 

@@ -8,5 +8,5 @@ export function resolvePath(config: { [index: string]: {} }, path: string) {
     });
   });
 
-  return results.find((result) => result.isValid);
+  return results.find((result) => result.isValid) ?? results[0];
 }
