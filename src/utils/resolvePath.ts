@@ -5,9 +5,8 @@ export function resolvePath(config: { [index: string]: {} }, path: string) {
   const results = Array.from(toPaths(path)).map(([path, alpha]) => {
     return Object.assign(validatePath(config, path), {
       resolvedPath: path,
-      alpha,
     });
   });
 
-  return results.find((result) => result.isValid) ?? results[0];
+  return results.find((result) => result.isValid);
 }

@@ -1,6 +1,6 @@
 import { Node } from "postcss";
 import parseValue, { Node as VNode } from "postcss-value-parser";
-import { Functions } from ".";
+import { Functions } from "../evaluateSemanticTokens";
 import { resolveVNode } from "./resolveVNode";
 
 export function extractArgs(node: Node, vNodes: VNode[], functions: Functions) {
