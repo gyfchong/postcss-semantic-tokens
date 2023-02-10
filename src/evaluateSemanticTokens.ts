@@ -53,16 +53,16 @@ const getValue = (node: Node, path: string, ...args: any): string => {
   return value;
 };
 
-export type SemanticCategories = "color" | "colour";
+export type SemanticCategories = keyof typeof semanticsConfig;
 export type Functions = {
   [index in SemanticCategories]: typeof getValue;
 };
 
 const plugin = (opts = {}) => {
-  let functions = {
-    color: getValue,
+  const functions = {
     colour: getValue,
-  };
+    space: getValue,
+  } satisfies Functions;
 
   return (root: Root) => {
     root.walk((node: ChildNode) => {

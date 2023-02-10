@@ -17,11 +17,7 @@ export function validatePath(
 
   const pathSegments = Array.isArray(path) ? path : toPath(pathString);
 
-  console.info("validatePath: pathSegments", pathSegments);
-
   const value = dlv(config, pathSegments);
-
-  console.info("validatePath: value", value);
 
   if (value === undefined) {
     let error = `'${pathString}' does not exist in your semantic tokens config.`;
@@ -60,7 +56,7 @@ export function validatePath(
           error += ` '${pathToString(closestPath)}' is not an object.`;
         }
       } else {
-        error += ` Your theme has the following top-level keys: ${listKeys(
+        error += ` Your semantic config has the following top-level keys: ${listKeys(
           config
         )}`;
       }
