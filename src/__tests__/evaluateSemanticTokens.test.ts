@@ -1,7 +1,7 @@
 import { expect, it, beforeEach } from "vitest";
 import postcss from "postcss";
 
-import plugin from "..";
+import plugin from "../evaluateSemanticTokens";
 
 declare module "vitest" {
   export interface TestContext {

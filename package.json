@@ -2,7 +2,8 @@
   "name": "postcss-semantic-tokens",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
     "dist"
   ],
@@ -20,8 +21,9 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "prepublish": "tsc",
-    "build": "pnpm prepublish",
+    "prepublish": "tsup src/index.ts --format esm,cjs",
+    "build": "pnpm clean && pnpm prepublish",
+    "clean": "rm -rf dist",
     "check": "tsc --noEmit",
     "test": "vitest"
   },
@@ -38,6 +40,7 @@
     "postcss": "^8.4.21",
     "postcss-value-parser": "^4.2.0",
     "prettier": "^2.8.3",
+    "tsup": "^6.6.0",
     "typescript": "^4.9.5",
     "vitest": "^0.28.4"
   },

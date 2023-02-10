@@ -98,8 +98,6 @@ export function validatePath(
     };
   }
 
-  console.info("validatePaths: value", value);
-
   return {
     isValid: true,
     value,
