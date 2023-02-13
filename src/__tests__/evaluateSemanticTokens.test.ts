@@ -24,6 +24,6 @@ it("gets correct interactive colour", async ({ options, input }) => {
     from: undefined,
   });
 
-  expect(result.css).toEqual("{box-shadow: 1px 1px 1px black;}");
+  expect(result.css).toEqual("{box-shadow: 1px 1px 1px #8b5cf6;}");
   expect(result.warnings()).toHaveLength(0);
 });

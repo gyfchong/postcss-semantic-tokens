@@ -22,11 +22,15 @@ export function validatePath(
   if (value === undefined) {
     let error = `'${pathString}' does not exist in your semantic tokens config.`;
     const parentSegments = pathSegments.slice(0, -1);
-    const parentValue = dlv(config.theme, parentSegments);
+    const parentValue = dlv(config, parentSegments);
+
+    console.info("parentValue", parentValue);
 
     if (isObject(parentValue)) {
       const validKeys = Object.keys(parentValue).filter(
-        (key) => validatePath(config, [...parentSegments, key]).isValid
+        (key) =>
+          console.info("key", key) ||
+          validatePath(config, [...parentSegments, key]).isValid
       );
 
       const suggestion = didYouMean(
